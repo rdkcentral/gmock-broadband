@@ -8,7 +8,24 @@ The **RdkbGMock** repository provides Google Mock-based implementations and util
 
 ### Setup Docker
 
-Please refer to the [RDKB Unit Testing](https://etwiki.sys.comcast.net/display/CPE/RDKB+Unit+Testing) documentation for setting up Docker.
+Use the container from [ghcr.io/rdkcentral/docker-rdk-ci](https://github.com/rdkcentral/docker-rdk-ci/pkgs/container/docker-rdk-ci) and follow these commands:
+
+```plaintext
+docker run --name=<x> --volume=$HOME/<y>:/home/$USER --restart=no --runtime=runc -t -d ghcr.io/rdkcentral/docker-rdk-ci:latest
+
+docker start <x>
+
+docker exec <x> groupadd $USER --gid=$(id -g $USER)
+
+docker exec <x> useradd -m $USER -G users --uid=$(id -u $USER) --gid=$(id -g $USER)
+
+docker exec --user $USER -it <x> /bin/bash
+```
+
+Replace the placeholders:
+- **x**: A name you choose for your Docker container (e.g., `rdk-ci-dev`).
+- **y**: A directory on your host machine that will be mounted into the container (e.g., `rdk_workspace`).
+
 
 ---
 
@@ -217,11 +234,13 @@ https://github.com/rdkcentral/rbus.git main rbus include $HOME/usr/include/rdkb/
 Example:
 
 ```
-<x>://<y>/rdk/rdkb/components/opensource/ccsp/halinterface/generic branch halinterface . $HOME/usr/include/rdkb
+<x>://<y>/<z> branch <brach_name> . $HOME/usr/include/rdkb
 ```
 
 - **x**: Either `ssh` or `https` or if any.
-- **y**: Either `code.rdkcentral.com` or `gerrit.teamccp.com` or if any.
+- **y**: Either `code.rdkcentral.com` or `github.com/rdkcentral` or if any.
+- **z**: Any rdkcentral repositories.
+- **branch_name**: Any rdkcentral repositories branch name.
 
 By following these guidelines and using the provided format, you can ensure proper configuration of repositories for your project.
 
@@ -237,13 +256,13 @@ By following these guidelines and using the provided format, you can ensure prop
 
 # Support
 
-For issues, contact the maintainers.
+For issues, contact the rdkb-gmock maintainers.
 
 ---
 
 # License
 
-This project is licensed under the RDK License. See the `LICENSE` file for details.
+This project is licensed under the Apache-2.0. See the `LICENSE` file for details.
 
 ---
 
