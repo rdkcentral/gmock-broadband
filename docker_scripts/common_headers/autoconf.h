@@ -1,0 +1,4 @@
+#define CONFIG_VENDOR_NAME "Broadcom."
+#define CONFIG_VENDOR_ID 0x0050F1
+#define CONFIG_TI_GW_DESCRIPTION "DOCSIS 3.1 Cable Modem Gateway Device"
+#define CONFIG_VENDOR_MODEL "CGP"
