@@ -17,12 +17,12 @@
 # limitations under the License.
 ##########################################################################
 #                                              -*- Autoconf -*-
-# Process this file with autoconf to produce configure script.
+# Process this file with autoconf to produce a configure script.
 #
 
 AC_PREREQ([2.65])
 AC_INIT([RdkbGMock], [1.0], [BUG-REPORT-ADDRESS])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([foreign])
 LT_INIT
 
 AC_ARG_ENABLE([unitTestDockerSupport],
