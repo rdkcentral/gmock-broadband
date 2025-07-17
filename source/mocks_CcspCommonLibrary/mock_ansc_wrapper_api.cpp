@@ -153,3 +153,12 @@ extern "C" PSINGLE_LINK_ENTRY AnscQueueSearchEntryByIndex(PQUEUE_HEADER QueueHea
     }
     return g_anscWrapperApiMock->AnscQueueSearchEntryByIndex(QueueHead, Index);
 }
+
+extern "C" PSINGLE_LINK_ENTRY AnscQueuePopEntry(PQUEUE_HEADER QueueHead)
+{
+    if (!g_anscWrapperApiMock)
+    {
+        return NULL;
+    }
+    return g_anscWrapperApiMock->AnscQueuePopEntry(QueueHead);
+}
