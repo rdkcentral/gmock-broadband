@@ -40,6 +40,7 @@ class rdkloggerInterface
         virtual void rdk_dbg_MsgRaw1(rdk_LogLevel, const char *,const char *, va_list) = 0;
         virtual rdk_logger_Bool rdk_dbg_enabled(const char *, rdk_LogLevel) = 0;
         virtual void rdk_log_onboard(const char *, const char *, va_list) = 0;
+        virtual void rdk_logger_msg_printf(rdk_LogLevel, const char *, const char *, va_list) = 0;
 };
 
 class rdkloggerMock: public rdkloggerInterface
@@ -55,6 +56,7 @@ class rdkloggerMock: public rdkloggerInterface
         MOCK_METHOD4(rdk_dbg_MsgRaw1, void(rdk_LogLevel, const char*, const char*, va_list));
         MOCK_METHOD2(rdk_dbg_enabled, rdk_logger_Bool(const char*, rdk_LogLevel));
         MOCK_METHOD3(rdk_log_onboard, void(const char*, const char*, va_list));
+        MOCK_METHOD4(rdk_logger_msg_printf, void(rdk_LogLevel, const char*, const char*, va_list));
 };
 
 #endif //MOCK_RDKLOGGER_H
