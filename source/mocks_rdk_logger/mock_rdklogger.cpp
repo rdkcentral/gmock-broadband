@@ -100,3 +100,14 @@ extern "C" void rdk_log_onboard(const char *module, const char *msg, ...)
         va_end(args);
     }
 }
+
+extern "C" void rdk_logger_msg_printf(rdk_LogLevel level, const char *module, const char *format, ...)
+{
+    if (g_rdkloggerMock)
+    {
+        va_list args;
+        va_start(args, format);
+        g_rdkloggerMock->rdk_logger_msg_printf(level, module, format, args);
+        va_end(args);
+    }
+}
