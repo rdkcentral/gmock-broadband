@@ -1,1 +1,4 @@
-/*Adding to avoid dependency issue while running run_ut.sh*/
+#ifdef __cplusplus
+extern "C" {
+#endif
+typedef int errno_t;
