@@ -24,6 +24,8 @@
 
 extern "C"
 {
+#define RDKCONFIG_OK 0
+#define RDKCONFIG_FAIL 1 
 int rdkconfig_get(uint8_t **, size_t *, const char *);
 int rdkconfig_free(uint8_t **, size_t);
 }
