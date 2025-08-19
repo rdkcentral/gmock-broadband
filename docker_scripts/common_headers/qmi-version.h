@@ -1,0 +1,8 @@
+#ifndef QMI_VERSION_H
+#define QMI_VERSION_H
+
+#define QMI_MAJOR_VERSION 1
+#define QMI_MINOR_VERSION 30
+#define QMI_MICRO_VERSION 0
+
+#endif /* QMI_VERSION_H */
