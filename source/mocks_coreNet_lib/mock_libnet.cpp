@@ -256,3 +256,23 @@ extern "C" libnet_status interface_set_mac(const char *if_name, char *mac)
 	}
 	return g_libnetMock->interface_set_mac(if_name,mac);
 }
+
+extern "C" libnet_status neighbour_get_list(struct neighbour_info *arr, char *mac, char *if_name, int af_filter)
+{
+    if(!g_libnetMock)
+    {
+        return CNL_STATUS_FAILURE;
+    }
+    return g_libnetMock->neighbour_get_list(arr, mac, if_name, af_filter);
+}
+
+//void neighbour_free_neigh(struct neighbour_info *neigh_info);
+//give mock implementation for neighbour_free_neigh
+extern "C" void neighbour_free_neigh(struct neighbour_info *neigh_info)
+{
+    if(!g_libnetMock)
+    {
+        return;
+    }
+    g_libnetMock->neighbour_free_neigh(neigh_info);
+}

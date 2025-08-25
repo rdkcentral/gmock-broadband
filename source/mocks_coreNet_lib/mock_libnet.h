@@ -59,6 +59,8 @@ public:
 	virtual libnet_status interface_status(char *if_name, int *status) = 0;
 	virtual libnet_status get_ipv6_address(char *if_name, char *ipv6_addr, size_t size) = 0;
 	virtual char* interface_get_ip(const char* if_name) = 0;
+	virtual libnet_status neighbour_get_list(struct neighbour_info *arr, char *mac, char *if_name, int af_filter) = 0;
+	virtual void neighbour_free_neigh(struct neighbour_info *neigh_info) = 0;
 
 };
 
@@ -91,6 +93,8 @@ public:
 	MOCK_METHOD3(get_ipv6_address, libnet_status(char *, char *, size_t));
 	MOCK_METHOD1(interface_get_ip, char*(const char*));
 	MOCK_METHOD2(interface_set_mac,libnet_status(const char* , char*));
+	MOCK_METHOD4(neighbour_get_list, libnet_status(struct neighbour_info *, char *, char *, int));
+	MOCK_METHOD1(neighbour_free_neigh, void(struct neighbour_info *));
 };
 
 #endif

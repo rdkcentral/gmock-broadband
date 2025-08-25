@@ -179,3 +179,18 @@ extern "C" int pcap_dispatch(pcap_t* p, int cnt, pcap_handler callback, u_char* 
     return 0;  // Default return value
 }
 
+extern "C" void pcap_freecode(struct bpf_program *program)
+{
+    if (!g_pcapMock)
+    {
+        return;
+    }
+    g_pcapMock->pcap_freecode(program);
+}
+
+extern "C" void pcap_close(pcap_t *p)
+{
+    if (p != nullptr) {
+        free(p);
+    }
+}
