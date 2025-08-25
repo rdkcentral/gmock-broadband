@@ -37,6 +37,8 @@ public:
     virtual int pcap_get_selectable_fd(pcap_t*) = 0;
     virtual int pcap_dispatch(pcap_t *p, int cnt, pcap_handler callback, u_char *user) = 0;
     virtual void pcap_breakloop(pcap_t *p) = 0;
+    virtual void pcap_freecode(struct bpf_program *program) = 0;
+    virtual void pcap_close(pcap_t *p) = 0;
 };
 
 class PcapMock : public PcapInterface {
@@ -55,5 +57,7 @@ public:
     MOCK_METHOD1(pcap_get_selectable_fd, int(pcap_t*));
     MOCK_METHOD4(pcap_dispatch, int(pcap_t *p, int cnt, pcap_handler callback, u_char *user));
     MOCK_METHOD1(pcap_breakloop, void(pcap_t *p));
+    MOCK_METHOD1(pcap_freecode, void(struct bpf_program *program));
+    MOCK_METHOD1(pcap_close, void(pcap_t *p));
 };
 
