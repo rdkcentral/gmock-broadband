@@ -52,7 +52,6 @@ class AnscWrapperApiInterface
         virtual PUCHAR AnscBase64Decode(PUCHAR pEncode, PULONG pulSize) = 0;
         virtual ULONG AnscGetStringUlongHex(char* hex_str)=0;
         virtual PSINGLE_LINK_ENTRY AnscQueueSearchEntryByIndex(PQUEUE_HEADER QueueHead, ULONG Index)=0;
-        virtual PSINGLE_LINK_ENTRY AnscQueuePopEntry(PQUEUE_HEADER QueueHead)=0;
 };
 
 class AnscWrapperApiMock : public AnscWrapperApiInterface
@@ -74,7 +73,6 @@ class AnscWrapperApiMock : public AnscWrapperApiInterface
         MOCK_METHOD2(AnscBase64Decode, PUCHAR(PUCHAR, PULONG));
         MOCK_METHOD1(AnscGetStringUlongHex,ULONG(char*));
         MOCK_METHOD2(AnscQueueSearchEntryByIndex,PSINGLE_LINK_ENTRY(PQUEUE_HEADER ,ULONG ));
-        MOCK_METHOD1(AnscQueuePopEntry, PSINGLE_LINK_ENTRY(PQUEUE_HEADER));
 };
 
 #endif
