@@ -25,16 +25,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef struct schedule_info_t {
-    int dummy;
-} schedule_info_t;
-
-// Dummy prototypes for required APIs
-void freeScheduleInfo(schedule_info_t* schedule);
-int run_schedule(schedule_info_t *t, char* action_key);
-int delete_schedule(char *action_key);
-
+#include "scheduler_interface.h"
 #ifdef __cplusplus
 }
 #endif
