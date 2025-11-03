@@ -47,6 +47,8 @@ public:
         virtual int PSM_Del_Record(void* , const char* , const char* ) = 0;
         virtual int CcspBaseIf_GetNextLevelInstances(void* ,const char* ,char* ,char* ,unsigned int* ,unsigned int**) = 0;
         virtual void free_parameterInfoStruct_t (void*, int, parameterInfoStruct_t **) = 0;
+        virtual int CcspBaseIf_SendSignal_WithData_rbus(void*, char *, char*) = 0;
+
 };
 
 
@@ -69,6 +71,7 @@ public:
         MOCK_METHOD3(PSM_Del_Record, int(void* , const char* , const char* ));
         MOCK_METHOD6(CcspBaseIf_GetNextLevelInstances, int(void* ,const char* ,char* ,char* ,unsigned int* ,unsigned int**));
         MOCK_METHOD3(free_parameterInfoStruct_t, void(void*, int, parameterInfoStruct_t **));
+        MOCK_METHOD3(CcspBaseIf_SendSignal_WithData_rbus, int(void*, char *, char*));
 };
 
 #endif

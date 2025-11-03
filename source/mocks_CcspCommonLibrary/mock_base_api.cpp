@@ -254,3 +254,12 @@ extern "C" void free_parameterInfoStruct_t (void* bus_handle, int size, paramete
     }
     return g_baseapiMock->free_parameterInfoStruct_t(bus_handle, size, val);
 }
+
+extern "C" int CcspBaseIf_SendSignal_WithData_rbus(void* bus_handle, char *event, char* data)
+{
+    if (!g_baseapiMock)
+    {
+        return -1;
+    }
+    return g_baseapiMock->CcspBaseIf_SendSignal_WithData_rbus(bus_handle, event, data);
+}
