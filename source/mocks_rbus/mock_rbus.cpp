@@ -547,3 +547,12 @@ extern "C" void rbusValue_SetUInt32(rbusValue_t value, uint32_t u32)
     }
     g_rbusMock->rbusValue_SetUInt32(value, u32);
 }
+
+extern "C" rbusError_t rbus_getStr(rbusHandle_t handle, char const* paramName, char** paramVal)
+{
+    if (!g_rbusMock)
+    {
+        return RBUS_ERROR_SUCCESS;
+    }
+    return g_rbusMock->rbus_getStr(handle, paramName, paramVal);
+}

@@ -62,6 +62,7 @@ class rbusInterface
         virtual rbusError_t rbusTable_registerRow(rbusHandle_t ,char const* , uint32_t , char const* ) = 0;
         virtual uint32_t rbusValue_GetUInt32(rbusValue_t ) = 0;
         virtual rbusError_t rbus_getUint(rbusHandle_t , char const* , unsigned int* ) = 0;
+        virtual rbusError_t rbus_getStr(rbusHandle_t , char const* , char** ) = 0;
         virtual rbusError_t rbusEvent_Unsubscribe(rbusHandle_t , char const* ) = 0;
         virtual rbusError_t rbus_unregDataElements(rbusHandle_t , int , rbusDataElement_t *) = 0;
         virtual void rbusValue_SetUInt64(rbusValue_t , uint64_t ) = 0;
@@ -123,6 +124,7 @@ class rbusMock: public rbusInterface
         MOCK_METHOD4(rbusTable_registerRow, rbusError_t(rbusHandle_t, char const*, uint32_t, char const*));
         MOCK_METHOD1(rbusValue_GetUInt32, uint32_t(rbusValue_t));
         MOCK_METHOD3(rbus_getUint, rbusError_t(rbusHandle_t, char const*, unsigned int*));
+        MOCK_METHOD3(rbus_getStr, rbusError_t(rbusHandle_t, char const*, char**));
         MOCK_METHOD2(rbusEvent_Unsubscribe, rbusError_t(rbusHandle_t, char const*));
         MOCK_METHOD3(rbus_unregDataElements, rbusError_t(rbusHandle_t, int, rbusDataElement_t*));
         MOCK_METHOD2(rbusValue_SetUInt64, void(rbusValue_t, uint64_t));
