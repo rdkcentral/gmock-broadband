@@ -254,3 +254,18 @@ extern "C" void free_parameterInfoStruct_t (void* bus_handle, int size, paramete
     }
     return g_baseapiMock->free_parameterInfoStruct_t(bus_handle, size, val);
 }
+
+/* RDKBDEV-3490: no-op stub for DiagnosticsState notify used by TAD DML Commit paths. */
+extern "C" void Notify_change(char *event_name, void *new_value)
+{
+    (void)event_name;
+    (void)new_value;
+}
+
+extern "C" int CosaGetParamValueString(char *param_name, char *buffer, PULONG size)
+{
+    (void)param_name;
+    (void)buffer;
+    (void)size;
+    return -1;
+}
